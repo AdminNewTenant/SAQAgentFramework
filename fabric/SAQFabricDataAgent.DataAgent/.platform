@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataAgent",
+    "displayName": "SAQFabricDataAgent"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "6cd7958f-cb92-afa2-4a00-4896f0471263"
+  }
+}

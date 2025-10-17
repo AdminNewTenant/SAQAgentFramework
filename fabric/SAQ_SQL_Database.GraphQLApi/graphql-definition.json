@@ -1,0 +1,183 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/graphqlApi/definition/1.0.0/schema.json",
+  "datasources": [
+    {
+      "objects": [
+        {
+          "actions": {
+            "Query": "Enabled",
+            "Query_by_pk": "Enabled",
+            "Create": "Enabled",
+            "Update": "Enabled",
+            "Delete": "Enabled"
+          },
+          "fieldMappings": {
+            "Alcool": "Alcool",
+            "IDAlcool": "IDAlcool",
+            "IDCocktail": "IDCocktail",
+            "Ingr\u00E9dientsSuppl\u00E9mentaires": "ingrdientsSupplmentaires",
+            "NomCocktail": "NomCocktail",
+            "Pr\u00E9paration": "prparation"
+          },
+          "graphqlType": "CocktailDetails",
+          "relationships": [
+            {
+              "cardinality": "OneToOne",
+              "field": "cocktails",
+              "linkingSourceFields": [],
+              "linkingTargetFields": [],
+              "sourceFields": [
+                "IDCocktail"
+              ],
+              "targetFields": [
+                "IDCocktail"
+              ],
+              "targetObject": "saq.Cocktails"
+            }
+          ],
+          "sourceObject": "saq.CocktailDetails",
+          "sourceObjectType": "Table"
+        },
+        {
+          "actions": {
+            "Query": "Enabled",
+            "Query_by_pk": "Enabled",
+            "Create": "Enabled",
+            "Update": "Enabled",
+            "Delete": "Enabled"
+          },
+          "fieldMappings": {
+            "Alcool": "Alcool",
+            "IDAlcool": "IDAlcool",
+            "IDCocktail": "IDCocktail",
+            "Ingr\u00E9dientsSuppl\u00E9mentaires": "ingrdientsSupplmentaires",
+            "NomCocktail": "NomCocktail",
+            "Pr\u00E9paration": "prparation"
+          },
+          "graphqlType": "Cocktails",
+          "relationships": [
+            {
+              "cardinality": "OneToMany",
+              "field": "listAlcools",
+              "linkingSourceFields": [],
+              "linkingTargetFields": [],
+              "sourceFields": [
+                "IDAlcool"
+              ],
+              "targetFields": [
+                "IDAlcool"
+              ],
+              "targetObject": "saq.ListAlcools"
+            }
+          ],
+          "sourceObject": "saq.Cocktails",
+          "sourceObjectType": "Table"
+        },
+        {
+          "actions": {
+            "Query": "Enabled",
+            "Query_by_pk": "Enabled",
+            "Create": "Enabled",
+            "Update": "Enabled",
+            "Delete": "Enabled"
+          },
+          "fieldMappings": {
+            "Degr\u00E9": "degr",
+            "IDAlcool": "IDAlcool",
+            "NomAlcool": "NomAlcool",
+            "Pays": "Pays",
+            "TypeAlcool": "TypeAlcool"
+          },
+          "graphqlType": "ListAlcools",
+          "relationships": [
+            {
+              "cardinality": "ManyToOne",
+              "field": "cocktailDetails",
+              "linkingSourceFields": [],
+              "linkingTargetFields": [],
+              "sourceFields": [
+                "IDAlcool"
+              ],
+              "targetFields": [
+                "IDAlcool"
+              ],
+              "targetObject": "saq.CocktailDetails"
+            },
+            {
+              "cardinality": "OneToOne",
+              "field": "stocks_Alcool_Magasins",
+              "linkingSourceFields": [],
+              "linkingTargetFields": [],
+              "sourceFields": [
+                "IDAlcool"
+              ],
+              "targetFields": [
+                "AlcoolID"
+              ],
+              "targetObject": "saq.Stocks_Alcool_Magasins"
+            }
+          ],
+          "sourceObject": "saq.ListAlcools",
+          "sourceObjectType": "Table"
+        },
+        {
+          "actions": {
+            "Query": "Enabled",
+            "Query_by_pk": "Enabled",
+            "Create": "Enabled",
+            "Update": "Enabled",
+            "Delete": "Enabled"
+          },
+          "fieldMappings": {
+            "IDMagasin": "IDMagasin",
+            "Latitude": "Latitude",
+            "Longitude": "Longitude",
+            "NomMagasin": "NomMagasin",
+            "VilleMagasin": "VilleMagasin"
+          },
+          "graphqlType": "Magasins",
+          "relationships": [],
+          "sourceObject": "saq.Magasins",
+          "sourceObjectType": "Table"
+        },
+        {
+          "actions": {
+            "Query": "Enabled",
+            "Query_by_pk": "Enabled",
+            "Create": "Enabled",
+            "Update": "Enabled",
+            "Delete": "Enabled"
+          },
+          "fieldMappings": {
+            "AlcoolID": "AlcoolID",
+            "EtatStock": "EtatStock",
+            "MagasinID": "MagasinID",
+            "QteStock": "QteStock",
+            "StockID": "StockID"
+          },
+          "graphqlType": "Stocks_Alcool_Magasins",
+          "relationships": [
+            {
+              "cardinality": "ManyToOne",
+              "field": "magasins",
+              "linkingSourceFields": [],
+              "linkingTargetFields": [],
+              "sourceFields": [
+                "MagasinID"
+              ],
+              "targetFields": [
+                "IDMagasin"
+              ],
+              "targetObject": "saq.Magasins"
+            }
+          ],
+          "sourceObject": "saq.Stocks_Alcool_Magasins",
+          "sourceObjectType": "Table"
+        }
+      ],
+      "sourceItemId": "e13cef36-2160-80a4-405e-5c3aa122a306",
+      "sourceType": "SqlDbNative",
+      "sourceWorkspaceId": "00000000-0000-0000-0000-000000000000"
+    }
+  ]
+}

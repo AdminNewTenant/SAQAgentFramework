@@ -1,0 +1,173 @@
+{
+  "runtime": "PYTHON",
+  "functionsMetadata": [
+    {
+      "name": "read_cocktails",
+      "scriptFile": "function_app.py",
+      "bindings": [
+        {
+          "name": "req",
+          "type": "HttpTrigger",
+          "direction": "In",
+          "authLevel": "Anonymous",
+          "methods": [
+            "POST"
+          ],
+          "route": ""
+        },
+        {
+          "name": "sqlDB",
+          "type": "FabricItem",
+          "direction": "In",
+          "alias": "SAQSQLDatabase",
+          "subType": "FabricSqlConnection",
+          "itemType": null,
+          "audienceType": null
+        }
+      ],
+      "fabricProperties": {
+        "fabricMetadataSchemaVersion": "1.1.0",
+        "fabricFunctionReturnType": "list",
+        "fabricFunctionParameters": [
+          {
+            "name": "alcools",
+            "dataType": "list"
+          }
+        ]
+      }
+    },
+    {
+      "name": "read_stocks_in_shops",
+      "scriptFile": "function_app.py",
+      "bindings": [
+        {
+          "name": "req",
+          "type": "HttpTrigger",
+          "direction": "In",
+          "authLevel": "Anonymous",
+          "methods": [
+            "POST"
+          ],
+          "route": ""
+        },
+        {
+          "name": "sqlDB",
+          "type": "FabricItem",
+          "direction": "In",
+          "alias": "SAQSQLDatabase",
+          "subType": "FabricSqlConnection",
+          "itemType": null,
+          "audienceType": null
+        }
+      ],
+      "fabricProperties": {
+        "fabricMetadataSchemaVersion": "1.1.0",
+        "fabricFunctionReturnType": "list",
+        "fabricFunctionParameters": [
+          {
+            "name": "alcools",
+            "dataType": "list"
+          }
+        ]
+      }
+    },
+    {
+      "name": "write_alcool",
+      "scriptFile": "function_app.py",
+      "bindings": [
+        {
+          "name": "req",
+          "type": "HttpTrigger",
+          "direction": "In",
+          "authLevel": "Anonymous",
+          "methods": [
+            "POST"
+          ],
+          "route": ""
+        },
+        {
+          "name": "sqlDB",
+          "type": "FabricItem",
+          "direction": "In",
+          "alias": "SAQSQLDatabase",
+          "subType": "FabricSqlConnection",
+          "itemType": null,
+          "audienceType": null
+        }
+      ],
+      "fabricProperties": {
+        "fabricMetadataSchemaVersion": "1.1.0",
+        "fabricFunctionReturnType": "str",
+        "fabricFunctionParameters": [
+          {
+            "name": "NomAlcool",
+            "dataType": "str"
+          },
+          {
+            "name": "TypeAlcool",
+            "dataType": "str"
+          },
+          {
+            "name": "Degr\u00E9",
+            "dataType": "str"
+          },
+          {
+            "name": "Pays",
+            "dataType": "str"
+          }
+        ]
+      }
+    },
+    {
+      "name": "write_cocktaildetails",
+      "scriptFile": "function_app.py",
+      "bindings": [
+        {
+          "name": "req",
+          "type": "HttpTrigger",
+          "direction": "In",
+          "authLevel": "Anonymous",
+          "methods": [
+            "POST"
+          ],
+          "route": ""
+        },
+        {
+          "name": "sqlDB",
+          "type": "FabricItem",
+          "direction": "In",
+          "alias": "SAQSQLDatabase",
+          "subType": "FabricSqlConnection",
+          "itemType": null,
+          "audienceType": null
+        }
+      ],
+      "fabricProperties": {
+        "fabricMetadataSchemaVersion": "1.1.0",
+        "fabricFunctionReturnType": "str",
+        "fabricFunctionParameters": [
+          {
+            "name": "NomCocktail",
+            "dataType": "str"
+          },
+          {
+            "name": "Alcool",
+            "dataType": "str"
+          },
+          {
+            "name": "IDAlcool",
+            "dataType": "str"
+          },
+          {
+            "name": "Ingr\u00E9dientsSuppl\u00E9mentaires",
+            "dataType": "str"
+          },
+          {
+            "name": "Pr\u00E9paration",
+            "dataType": "str"
+          }
+        ]
+      }
+    }
+  ]
+}

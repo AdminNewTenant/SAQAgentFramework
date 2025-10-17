@@ -1,0 +1,465 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings"
+            },
+            "storeSettings": {
+              "type": "LakehouseReadSettings",
+              "recursive": true,
+              "enablePartitionDiscovery": false
+            },
+            "datasetSettings": {
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "fileName": "Cocktails.csv"
+                },
+                "columnDelimiter": ",",
+                "rowDelimiter": "\n",
+                "quoteChar": "\"",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "SAQ_LH",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "a7a078f7-cc15-4c18-b83d-82315df6489d",
+                    "workspaceId": "b22b8348-37cb-4559-aaf2-edde33090836",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "FabricSqlDatabaseSink",
+            "sqlWriterUseTableLock": false,
+            "writeBehavior": "insert",
+            "tableOption": "autoCreate",
+            "datasetSettings": {
+              "type": "FabricSqlDatabaseTable",
+              "typeProperties": {
+                "schema": "saq",
+                "table": "Cocktails"
+              },
+              "schema": [],
+              "connectionSettings": {
+                "name": "SQL-Database",
+                "properties": {
+                  "type": "FabricSqlDatabase",
+                  "typeProperties": {
+                    "artifactId": "a122a306-5c3a-405e-80a4-2160e13cef36",
+                    "workspaceId": "fa31baa7-467d-4ada-a749-49b8e2caf609"
+                  },
+                  "externalReferences": {
+                    "connection": "00a96491-c629-45f9-8ded-f95212f402cc"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Cocktails",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": []
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings"
+            },
+            "storeSettings": {
+              "type": "LakehouseReadSettings",
+              "recursive": true,
+              "enablePartitionDiscovery": false
+            },
+            "datasetSettings": {
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "fileName": "CocktailsDetails.csv"
+                },
+                "columnDelimiter": ",",
+                "quoteChar": "\"",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "SAQ_LH",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "a7a078f7-cc15-4c18-b83d-82315df6489d",
+                    "workspaceId": "b22b8348-37cb-4559-aaf2-edde33090836",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "FabricSqlDatabaseSink",
+            "sqlWriterUseTableLock": false,
+            "writeBehavior": "insert",
+            "tableOption": "autoCreate",
+            "datasetSettings": {
+              "type": "FabricSqlDatabaseTable",
+              "typeProperties": {
+                "schema": "saq",
+                "table": "CocktailDetails"
+              },
+              "schema": [],
+              "connectionSettings": {
+                "name": "SQL-Database",
+                "properties": {
+                  "type": "FabricSqlDatabase",
+                  "typeProperties": {
+                    "artifactId": "a122a306-5c3a-405e-80a4-2160e13cef36",
+                    "workspaceId": "fa31baa7-467d-4ada-a749-49b8e2caf609"
+                  },
+                  "externalReferences": {
+                    "connection": "00a96491-c629-45f9-8ded-f95212f402cc"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "CocktailDetails",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": []
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings"
+            },
+            "storeSettings": {
+              "type": "LakehouseReadSettings",
+              "recursive": true,
+              "enablePartitionDiscovery": false
+            },
+            "datasetSettings": {
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "fileName": "ListAlcools.csv"
+                },
+                "columnDelimiter": ",",
+                "quoteChar": "\"",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "SAQ_LH",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "a7a078f7-cc15-4c18-b83d-82315df6489d",
+                    "workspaceId": "b22b8348-37cb-4559-aaf2-edde33090836",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "FabricSqlDatabaseSink",
+            "sqlWriterUseTableLock": false,
+            "writeBehavior": "insert",
+            "tableOption": "autoCreate",
+            "datasetSettings": {
+              "type": "FabricSqlDatabaseTable",
+              "typeProperties": {
+                "schema": "saq",
+                "table": "ListAlcools"
+              },
+              "schema": [],
+              "connectionSettings": {
+                "name": "SQL-Database",
+                "properties": {
+                  "type": "FabricSqlDatabase",
+                  "typeProperties": {
+                    "artifactId": "a122a306-5c3a-405e-80a4-2160e13cef36",
+                    "workspaceId": "fa31baa7-467d-4ada-a749-49b8e2caf609"
+                  },
+                  "externalReferences": {
+                    "connection": "00a96491-c629-45f9-8ded-f95212f402cc"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "ListAlcools",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": []
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings"
+            },
+            "storeSettings": {
+              "type": "LakehouseReadSettings",
+              "recursive": true,
+              "enablePartitionDiscovery": false
+            },
+            "datasetSettings": {
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "fileName": "Magasins.csv"
+                },
+                "columnDelimiter": ",",
+                "quoteChar": "\"",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "SAQ_LH",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "a7a078f7-cc15-4c18-b83d-82315df6489d",
+                    "workspaceId": "b22b8348-37cb-4559-aaf2-edde33090836",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "FabricSqlDatabaseSink",
+            "sqlWriterUseTableLock": false,
+            "writeBehavior": "insert",
+            "tableOption": "autoCreate",
+            "datasetSettings": {
+              "type": "FabricSqlDatabaseTable",
+              "typeProperties": {
+                "schema": "saq",
+                "table": "Magasins"
+              },
+              "schema": [],
+              "connectionSettings": {
+                "name": "SQL-Database",
+                "properties": {
+                  "type": "FabricSqlDatabase",
+                  "typeProperties": {
+                    "artifactId": "a122a306-5c3a-405e-80a4-2160e13cef36",
+                    "workspaceId": "fa31baa7-467d-4ada-a749-49b8e2caf609"
+                  },
+                  "externalReferences": {
+                    "connection": "00a96491-c629-45f9-8ded-f95212f402cc"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Magasins",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": []
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings"
+            },
+            "storeSettings": {
+              "type": "LakehouseReadSettings",
+              "recursive": true,
+              "enablePartitionDiscovery": false
+            },
+            "datasetSettings": {
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "fileName": "Stocks_Alcool_Magasins.csv"
+                },
+                "columnDelimiter": ",",
+                "quoteChar": "\"",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "SAQ_LH",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "a7a078f7-cc15-4c18-b83d-82315df6489d",
+                    "workspaceId": "b22b8348-37cb-4559-aaf2-edde33090836",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "FabricSqlDatabaseSink",
+            "sqlWriterUseTableLock": false,
+            "writeBehavior": "insert",
+            "tableOption": "autoCreate",
+            "datasetSettings": {
+              "type": "FabricSqlDatabaseTable",
+              "typeProperties": {
+                "schema": "saq",
+                "table": "Stocks_Alcool_Magasins"
+              },
+              "schema": [],
+              "connectionSettings": {
+                "name": "SQL-Database",
+                "properties": {
+                  "type": "FabricSqlDatabase",
+                  "typeProperties": {
+                    "artifactId": "e13cef36-2160-80a4-405e-5c3aa122a306",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000"
+                  },
+                  "externalReferences": {
+                    "connection": "00a96491-c629-45f9-8ded-f95212f402cc"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Stocks_Alcool_Magasins",
+        "dependsOn": []
+      }
+    ]
+  }
+}

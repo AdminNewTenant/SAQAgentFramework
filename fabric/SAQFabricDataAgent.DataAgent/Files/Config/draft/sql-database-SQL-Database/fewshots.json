@@ -1,0 +1,20 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/dataAgent/definition/fewShots/1.0.0/schema.json",
+  "fewShots": [
+    {
+      "id": "c4c95433-3cea-4f59-8aa3-8ef4ef109b87",
+      "question": "Est-ce que tu pourrais me proposer des cocktails à base de Tequila?",
+      "query": "SELECT * \r\n    FROM [saq].[Cocktails]\r\n    WHERE [Alcool] = '%Tequila%';"
+    },
+    {
+      "id": "f9901d03-544f-4126-ab00-e27bf9d5d540",
+      "question": "Combien de SAQ il y a-t-il à Rimouski?",
+      "query": "SELECT COUNT(*)\r\n    FROM [saq].[Magasins]\r\n    WHERE VilleMagasin = 'Rimouski';"
+    },
+    {
+      "id": "bfa56a4c-8f94-4231-a69a-23d3c243c53a",
+      "question": "Quels alcohols sont disponibles à Rimouski?",
+      "query": "SELECT *\r\n    FROM [saq].[Stocks_Alcool_Magasins] SAM\r\n    INNER JOIN [saq].[Magasins] MAG ON SAM.MagasinID = MAG.IDMagasin\r\n    INNER JOIN [saq].[ListAlcools] ALC ON ALC.IDAlcool = SAM.AlcoolID\r\n    WHERE VilleMagasin = 'Rimouski';"
+    }
+  ]
+}
