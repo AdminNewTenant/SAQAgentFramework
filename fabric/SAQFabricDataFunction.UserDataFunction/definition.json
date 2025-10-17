@@ -11,10 +11,6 @@
   ],
   "functions": [
     {
-      "name": "get_udf_oai_spec_json",
-      "isPublicEndpointEnabled": true
-    },
-    {
       "name": "read_cocktails",
       "description": "",
       "isPublicEndpointEnabled": true
