@@ -1,7 +1,5 @@
 # SAG Agent Framework with AI Gateway
 
-SAQ Agent Framework
-
 <img width="1117" height="982" alt="image" src="https://github.com/user-attachments/assets/06aefddd-fc20-49b8-8614-5bbdbd04b2e4" />
 
 # 🧠 AI Gateway Solution Architecture Overview
